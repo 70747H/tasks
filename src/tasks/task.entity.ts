@@ -1,5 +1,5 @@
-import { User } from 'src/auth/user.entity';
-import { TimeStampEntity } from 'src/generics/timestamp.entities';
+import { User } from '../auth/user.entity';
+import { TimeStampEntity } from '../generics/timestamp.entities';
 import { Entity, BaseEntity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, ManyToOne, JoinColumn } from 'typeorm';
 import { TaskStatus } from "./task-status.enum";
 

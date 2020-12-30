@@ -1,12 +1,10 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { typeOrmConfig } from 'config/typeorm.config';
-import { TasksController } from './tasks/tasks.controller';
 import { TasksModule } from './tasks/tasks.module';
-import { TasksService } from './tasks/tasks.service';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import config from '../config/config';
+import { ApiConfigService } from '../config/config.service';
 
 const ENV = process.env.NODE_ENV;
 
@@ -20,15 +18,14 @@ const ENV = process.env.NODE_ENV;
     // TypeOrmModule.forRoot(typeOrmConfig),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
-      useFactory: (config: ConfigService) => {
-        console.log('aaaaaaaaaaaaaaaa: ', config.get('database'))
-        return config.get('database');
-      },
+      useFactory: (config: ConfigService) => config.get('database'),
       inject: [ConfigService]
     }),
+    ApiConfigService,
     TasksModule,
     AuthModule],
   controllers: [],
   providers: [],
+  exports: [ApiConfigService]
 })
 export class AppModule {}

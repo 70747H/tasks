@@ -1,7 +1,7 @@
-import { TimeStampEntity } from "src/generics/timestamp.entities";
+import { TimeStampEntity } from "../generics/timestamp.entities";
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn, Unique } from "typeorm";
-import * as bcrypt from 'bcrypt';
-import { Task } from "src/tasks/task.entity";
+import * as bcrypt from 'bcryptjs';
+import { Task } from "../tasks/task.entity";
 
 @Entity()
 @Unique(['username'])
