@@ -1,5 +1,5 @@
 import { EntityRepository, Repository } from "typeorm";
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
 import { AuthCeredentialsDto } from "./dto/auth-credentials.dto";
 import { User } from "./user.entity";
 

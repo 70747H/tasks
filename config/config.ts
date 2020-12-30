@@ -1,4 +1,5 @@
 export default () => ({
+    env: process.env.NODE_ENV,
     port: parseInt(process.env.NODE_PORT, 10),
     database: {
       type: process.env.DATABASE_TYPE,
@@ -10,6 +11,6 @@ export default () => ({
       entities: [__dirname + '/../**/*.entity.{js,ts}'],
       synchronize: (process.env.TYPEORM_SYNC === 'true'),
       logging: (process.env.TYPEORM_LOGGING === 'true'),
-      maxQueryExecutionTime: parseInt(process.env.TYPEORM_MAX_QUERY_EXECUTION_TIM, 10)
+      maxQueryExecutionTime: parseInt(process.env.TYPEORM_MAX_QUERY_EXECUTION_TIME, 10)
     }
   });

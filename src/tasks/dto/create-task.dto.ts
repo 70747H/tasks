@@ -20,6 +20,7 @@ export class CreateTaskDto {
     @IsIn(ALLOWED_STATUSES)
     status: string = ALLOWED_STATUSES[0];
 
+    @IsOptional()
     @IsDefined()
     @IsNumber()
     @IsNotEmpty()
