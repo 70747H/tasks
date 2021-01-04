@@ -17,6 +17,9 @@ async function bootstrap() {
   if(apiConfigService.isDevelopment)
     app.enableCors();
 
+  if(apiConfigService.isProduction)
+    app.enableCors({ origin: configService.get('origin') });
+
   const logger = new Logger();
   app.useGlobalPipes(new ValidationPipe(classValidatorOptions));
   app.useGlobalFilters(new (QueryFailedExceptionFilter));
