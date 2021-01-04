@@ -1,6 +1,11 @@
 export default () => ({
     env: process.env.NODE_ENV,
     port: parseInt(process.env.NODE_PORT, 10),
+    origin: process.env.SERVER_ORIGIN,
+    jwt: {
+      secret: process.env.JWT_SECRET,
+      expiresIn: process.env.JWT_EXPIRES_IN
+    },
     database: {
       type: process.env.DATABASE_TYPE,
       host: process.env.DATABASE_HOST,
